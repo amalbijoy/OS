@@ -1,4 +1,4 @@
-# cosmOS
+# OS
 
 A work-in-progress operating system repository.  
 Built from scratch in **C + Assembly**, focusing on kernel fundamentals, boot process, and low-level architecture.
