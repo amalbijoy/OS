@@ -20,3 +20,17 @@ To build the OS locally:
 ```sh
 make
 ```
+## Future Repo Structure
+```
+/OS/
+├── .gitignore
+├── boot/
+│   └── boot.asm
+├── build/     # Build output here
+├── docs/      # Design & theory
+├── LICENSE
+├── Makefile
+├── README.md  # This File
+├── scripts/   # Helper scripts
+└── toolchain/ # Scripts to build cross-compiler
+```
