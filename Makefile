@@ -1,11 +1,25 @@
-ASM=nasm
+ASM := nasm
+SRC_DIR := boot
+BUILD_DIR := build
+IMAGE := $(BUILD_DIR)/main_floppy.img
+BIN := $(BUILD_DIR)/main.bin
 
-SRC_DIR=boot
-BUILD_DIR=build
+.PHONY: all run clean
 
-$(BUILD_DIR)/main_floppy.img: $(BUILD_DIR)/main.bin
-	cp $(BUILD_DIR)/main.bin $(BUILD_DIR)/main_floppy.img
-	truncate -s 1440k $(BUILD_DIR)/main_floppy.img
+all: $(IMAGE)
 
-$(BUILD_DIR)/main.bin: $(SRC_DIR)/boot.asm
-	$(ASM) $(SRC_DIR)/boot.asm -f bin -o $(BUILD_DIR)/main.bin
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
+
+$(BIN): $(SRC_DIR)/boot.asm | $(BUILD_DIR)
+	$(ASM) $(SRC_DIR)/boot.asm -f bin -o $(BIN)
+
+$(IMAGE): $(BIN)
+	cp $(BIN) $(IMAGE)
+	truncate -s 1440k $(IMAGE)
+
+run: $(IMAGE)
+	qemu-system-x86_64 -drive format=raw,file=$(IMAGE)
+
+clean:
+	rm -rf $(BUILD_DIR)
