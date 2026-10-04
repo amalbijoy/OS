@@ -4,7 +4,7 @@
 
 ## Current status
 
-The repository currently contains a **boot-sector prototype** written in x86 assembly. The boot sector is assembled into a 1.44 MiB floppy image and currently halts intentionally after BIOS loads it.
+The repository contains a boot sector plus an early freestanding kernel. The boot sector is assembled into a 1.44 MiB floppy image and currently halts intentionally after BIOS loads it.
 
 This is a learning project: the goal is to progress from the boot process into a small custom kernel, then gradually add interrupts, memory management, drivers, and scheduling.
 
