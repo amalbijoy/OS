@@ -1,0 +1,24 @@
+name: OS CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install NASM and QEMU
+        run: sudo apt-get update && sudo apt-get install -y nasm qemu-system-x86
+      - name: Build boot image
+        run: make
+      - name: Verify boot signature and image size
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          image = Path('build/main_floppy.img').read_bytes()
+          assert len(image) == 1440 * 1024
+          assert image[510:512] == b'\x55\xaa'
+          print('boot image verified')
+          PY
