@@ -1,10 +1,10 @@
 # OS
 
-> Early-stage hobby operating-system project built from a hand-written x86 boot sector.
+> Early-stage hobby operating-system project built from a hand-written x86 boot sector and an early freestanding C kernel.
 
 ## Current status
 
-The repository contains a boot sector plus an early freestanding kernel. The boot sector is assembled into a 1.44 MiB floppy image and currently halts intentionally after BIOS loads it.
+The repository contains a BIOS boot sector plus an early freestanding kernel. The boot sector loads the kernel, installs a minimal GDT, enters 32-bit protected mode, and transfers control to the kernel.
 
 This is a learning project: the goal is to progress from the boot process into a small custom kernel, then gradually add interrupts, memory management, drivers, and scheduling.
 
@@ -12,7 +12,9 @@ This is a learning project: the goal is to progress from the boot process into a
 
 - 16-bit boot-sector entry point at `0x7C00`
 - Boot signature `0xAA55`
-- NASM-based build
+- NASM + GCC/ld build
+- GDT and 32-bit protected-mode transition
+- Freestanding C kernel with direct VGA text output
 - 1.44 MiB raw floppy image generation
 - QEMU run target
 
