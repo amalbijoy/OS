@@ -18,9 +18,9 @@ This is a learning project: the goal is to progress from the boot process into a
 - 1.44 MiB raw floppy image generation
 - QEMU run target
 
-## Roadmap
+## Project status
 
-See [docs/ROADMAP.md](docs/ROADMAP.md) for the implementation plan.
+See [docs/STATUS.md](docs/STATUS.md) for the current bring-up milestone and [docs/ROADMAP.md](docs/ROADMAP.md) for the longer-term plan.
 
 ## Build and run
 
