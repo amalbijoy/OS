@@ -28,6 +28,8 @@ Prerequisites:
 
 - NASM
 - GNU Make
+- GCC with 32-bit support
+- Binutils
 - QEMU (`qemu-system-x86_64`)
 
     make
@@ -40,6 +42,10 @@ The generated image is `build/main_floppy.img`.
     OS/
     ├── boot/
     │   └── boot.asm
+    ├── kernel/
+    │   ├── entry.asm
+    │   ├── kernel.c
+    │   └── linker.ld
     ├── build/          # generated locally; ignored by Git
     ├── docs/
     │   └── ROADMAP.md
