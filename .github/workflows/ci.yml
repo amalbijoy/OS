@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install NASM and QEMU
-        run: sudo apt-get update && sudo apt-get install -y nasm qemu-system-x86
+        run: sudo apt-get update && sudo apt-get install -y nasm gcc-multilib binutils qemu-system-x86
       - name: Build boot image
         run: make
       - name: Verify boot signature and image size
