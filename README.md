@@ -1,4 +1,4 @@
-# AmalOS (OS)
+# OS
 
 > Early-stage hobby operating-system project exploring the boot process, x86 protected mode, and a tiny freestanding C kernel.
 
@@ -6,7 +6,7 @@
 
 The current image boots through a hand-written 16-bit BIOS boot sector and reaches a minimal 32-bit kernel.
 
-Implemented today:
+Implemented:
 
 - Boot sector assembled at the BIOS load address `0x7C00`
 - Boot signature `0xAA55`
